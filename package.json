@@ -1,0 +1,67 @@
+{
+  "name": "vscode-windows-reader",
+  "displayName": "vscode-windows-reader",
+  "description": "windows TTS",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/januwA/vscode-windows-reader"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-windows-reader.readText",
+        "title": "Windows Reader: 朗读选中文本"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vscode-windows-reader.readText",
+        "key": "ctrl+alt+s",
+        "mac": "cmd+alt+s",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Windows Reader",
+      "properties": {
+        "windowsReader.rate": {
+          "type": "number",
+          "default": 0,
+          "description": "朗读语速 (-10 到 10)"
+        },
+        "windowsReader.volume": {
+          "type": "number",
+          "default": 100,
+          "description": "朗读音量 (0 到 100)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.19.17",
+    "@types/vscode": "^1.110.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  }
+}
