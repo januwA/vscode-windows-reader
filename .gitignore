@@ -1,5 +1,9 @@
 out
 dist
+bin
 node_modules
 .vscode-test/
 *.vsix
+
+.vs
+x64
